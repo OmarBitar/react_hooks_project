@@ -1,16 +1,18 @@
+import React, { createContext } from "react";
 import Son from "./components/Son";
 
-function App(props) {
+export const FamilyNameContext = createContext();
+
+function App({familyName}) {
   return (
     <div>
-      Family Tree
-      <br/>
-      Mike {props.familyName} is the Grand Father
-      <Son/> is the son
+      <FamilyNameContext.Provider value={familyName}>
+        <Son/> 
+      </FamilyNameContext.Provider>
     </div>
   );
 }
 App.defaultProps = {
-  familyName : "Jacksons"
+  familyName : "Jackson"
 }
 export default App;
