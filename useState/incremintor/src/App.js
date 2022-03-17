@@ -2,15 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
+const defaultValue = 20;
+
+
 function App() {
-  const [count,setCount] = useState(0);
+  const [count,setCount] = useState(defaultValue);
+  const speedUp = () => {
+    setCount(count+defaultValue)
+  }
+  const slowDown = () => {
+    setCount(count-defaultValue)
+  }
   return (
     <div className="App">
       <header className="App-header">
         <p>{count}</p>
         <span>
-          <button onClick={() => setCount(count-1)}>-</button>
-          <button onClick={() => setCount(count+1)}>+</button>
+          <button onClick={() => slowDown()}>-</button>
+          <button onClick={() => speedUp()}>+</button>
         </span>
        
         <img src={logo} className="App-logo" alt="logo" />
